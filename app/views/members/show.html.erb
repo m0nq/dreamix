@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @member.name %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @member.email %>
+</p>
+
+<p>
+  <strong>Password:</strong>
+  <%= @member.password %>
+</p>
+
+<p>
+  <strong>Social media connected:</strong>
+  <%= @member.social_media_connected %>
+</p>
+
+<p>
+  <strong>Social profile:</strong>
+  <%= @member.social_profile %>
+</p>
+
+<p>
+  <strong>Number of uploads:</strong>
+  <%= @member.number_of_uploads %>
+</p>
+
+<%= link_to 'Edit', edit_member_path(@member) %> |
+<%= link_to 'Back', members_path %>
