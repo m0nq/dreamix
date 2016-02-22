@@ -11,10 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160221234834) do
+ActiveRecord::Schema.define(version: 20160222055546) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "favorites", force: :cascade do |t|
+    t.integer  "song_id"
+    t.integer  "member_id"
+    t.datetime "time"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "favorites", ["member_id", "song_id"], name: "index_favorites_on_member_id_and_song_id", using: :btree
 
   create_table "members", force: :cascade do |t|
     t.string   "name"
@@ -26,6 +36,16 @@ ActiveRecord::Schema.define(version: 20160221234834) do
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
   end
+
+  create_table "shares", force: :cascade do |t|
+    t.integer  "song_id"
+    t.integer  "member_id"
+    t.datetime "time"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "shares", ["member_id", "song_id"], name: "index_shares_on_member_id_and_song_id", using: :btree
 
   create_table "songs", force: :cascade do |t|
     t.string   "artist"
