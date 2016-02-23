@@ -1,0 +1,12 @@
+<% @page_title = "Dreamix" %>
+
+<div class="menu">
+  <h2>Menu</h2>
+  <div class="identity"><img src="" alt="">Logged in as:</div>
+  <ul>
+
+    <li><%= link_to("Settings", {:controller => :members, :action => 'edit'}) %></li>
+
+    <li><%= link_to("Logout", :action => 'logout') %></li>
+  </ul>
+</div>

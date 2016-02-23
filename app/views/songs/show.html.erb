@@ -1,40 +1,57 @@
+<div class="container">
+  <div class="page-header">
+    <div class="btn btn-default btn-sm pull-left" role="button">
+      <!-- <a href="/members/index"><img src="" alt=""></a> -->
+      <%= link_to "<img src='/assets/images/monk1.jpg' alt=''>".html_safe, "/members/index" %>
+    </div>
+    <h1 class="pull-right">Dreamix</h1>
+  </div>
+</div>
+
 <p id="notice"><%= notice %></p>
+<div class="container">
 
-<p>
-  <strong>Artist:</strong>
-  <%= @song.artist %>
-</p>
+  <img src="" alt="" />
 
-<p>
-  <strong>Title:</strong>
-  <%= @song.title %>
-</p>
+  <p>
+    <strong>Artist:</strong>
+    <%= @song.artist %>
+  </p>
 
-<p>
-  <strong>Url:</strong>
-  <%= @song.url %>
-</p>
+  <p>
+    <strong>Title:</strong>
+    <%= @song.title %>
+  </p>
 
-<p>
-  <strong>Duration:</strong>
-  <%= @song.duration %>
-</p>
+  <p>
+    <strong>Url:</strong>
+    <%= @song.url %>
+  </p>
 
-<p>
-  <strong>Format:</strong>
-  <%= @song.format %>
-</p>
+  <p>
+    <strong>Duration:</strong>
+    <%= @song.duration %>
+  </p>
 
-<p>
-  <strong>Is playing:</strong>
-  <%= @song.is_playing %>
-</p>
+  <!-- <p>
+    <strong>Format:</strong>
+    <%= @song.format %>
+  </p>
 
-<%= link_to 'Edit', edit_song_path(@song) %> |
-<%= link_to 'Back', songs_path %>
+  <p>
+    <strong>Is playing:</strong>
+    <%= @song.is_playing %>
+  </p> -->
 
-<audio controls preload="auto">
-  <source src="<%= @song.url %>" type="audio/mp4"/>
-  <!-- <source src="http://" type="audio/ogg"/> -->
-  <p>Please update your browser to the latest version to play music.</p>
-</audio>
+  <!-- <%= link_to 'Edit', edit_song_path(@song) %> | -->
+  <div class="btn btn-default btn-sm" role="button">
+    <%= link_to 'Back', songs_path %>
+  </div>
+</div>
+<footer>
+  <audio controls preload="auto">
+    <source src="<%= @song.url %>" type="audio/mp4"/>
+    <source src="http://" type="audio/ogg"/>
+    <p>Please update your browser to the latest version to play music.</p>
+  </audio>
+</footer>

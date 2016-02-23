@@ -1,5 +1,6 @@
 class SongsController < ApplicationController
   before_action :set_song, only: [:show, :edit, :update, :destroy]
+  before_action :confirmed_logged_in
 
   # GET /songs
   # GET /songs.json
@@ -27,6 +28,7 @@ class SongsController < ApplicationController
   # POST /songs.json
   def create
     @song = Song.new(song_params)
+    member = @song
 
     respond_to do |format|
       if @song.save

@@ -1,5 +1,6 @@
 class MembersController < ApplicationController
   before_action :set_member, only: [:show, :edit, :update, :destroy]
+  before_action :confirmed_logged_in
 
   # List all members; may not be needed.
   # GET /members
@@ -23,6 +24,7 @@ class MembersController < ApplicationController
   # Display current member edit form
   # GET /members/1/edit
   def edit
+    @member = Member.find(params[:id])
   end
 
   # Add new member to stream roster

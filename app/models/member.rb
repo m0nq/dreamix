@@ -1,4 +1,7 @@
 class Member < ActiveRecord::Base
+
+  has_secure_password
+
   has_many :songs, :through => :stream
   has_many :favorites
   has_many :shares

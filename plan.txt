@@ -1,0 +1,16 @@
+1. When member hits splash page
+  1a. They can login with their email and password.
+
+2. When a member logs-in
+  2a. The stream is populated with a randomized list of songs
+  2b. The first song in the list is loaded into the audio element; ready to play
+  2c. When a user clicks
+    2c.1 play (toggle)
+      2c.1a play the loaded audio track
+      2c.1b pause the loaded audio track
+    2c.2 next
+      2c.2a load the next audio track into the player
+      2c.2b change appropriate display data
+      2c.2c play song
+    2c.3 share
+      2c.3a 
