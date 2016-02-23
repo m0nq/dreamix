@@ -1,4 +1,16 @@
 Rails.application.routes.draw do
+  get 'login/splash'
+
+  get 'login/email'
+
+  get 'login/invite'
+
+  get 'login/splash'
+
+  get 'login/email'
+
+  get 'login/invite'
+
   resources :members do
     resources :favorites
   end
@@ -8,7 +20,7 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'songs#show'
+  root 'members#show'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
