@@ -1,26 +1,31 @@
 class MembersController < ApplicationController
   before_action :set_member, only: [:show, :edit, :update, :destroy]
 
+  # List all members; may not be needed.
   # GET /members
   # GET /members.json
   def index
     @members = Member.all
   end
 
+  # List one member
   # GET /members/1
   # GET /members/1.json
   def show
   end
 
+  # Display new member form
   # GET /members/new
   def new
     @member = Member.new
   end
 
+  # Display current member edit form
   # GET /members/1/edit
   def edit
   end
 
+  # Add new member to stream roster
   # POST /members
   # POST /members.json
   def create
@@ -37,6 +42,7 @@ class MembersController < ApplicationController
     end
   end
 
+  # Edit a members info
   # PATCH/PUT /members/1
   # PATCH/PUT /members/1.json
   def update
@@ -51,6 +57,7 @@ class MembersController < ApplicationController
     end
   end
 
+  # Delete member/deactivate account
   # DELETE /members/1
   # DELETE /members/1.json
   def destroy
