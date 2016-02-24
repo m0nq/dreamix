@@ -1,5 +1,5 @@
 class CreateSongs < ActiveRecord::Migration
-  def change
+  def up
     create_table :songs do |t|
       t.string :artist
       t.string :title
@@ -11,5 +11,13 @@ class CreateSongs < ActiveRecord::Migration
 
       t.timestamps null: false
     end
+    add_index(:songs, :member_id)
+    add_index(:songs, :artist)
+    add_index(:songs, :title)
+    add_index(:songs, :url)
+  end
+
+  def down
+    drop_table :songs
   end
 end

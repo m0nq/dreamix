@@ -2,9 +2,9 @@
   <div class="page-header">
     <div class="btn btn-default btn-sm pull-left" role="button">
       <%# if member.social_media_connected do
-            link_to(image_tag(member.social_profile image), { :controller => :members, :action => :show, with :id of self})
+            link_to(image_tag(member.social_profile image), { :controller => :members, :action => :show, :id => self.id })
           else
-            link_to(image_tag(default image), { :controller => :members, :action => :show, with :id of self})
+            link_to(image_tag(default image), { :controller => :members, :action => :show, with :id => self.id })
           end %>
       <%= link_to image_tag("../assets/images/monk1.jpg"), "/members/index" %>
     </div>
@@ -47,15 +47,18 @@
     <%= @song.is_playing %>
   </p> -->
 
-  <!-- <%= link_to 'Edit', edit_song_path(@song) %> | -->
+  <%# link_to 'Edit', edit_song_path(@song)  | %>
   <div class="btn btn-default btn-sm" role="button">
     <%= link_to 'Back', songs_path %>
   </div>
 </div>
 <footer>
+  <%# link_to image_tag "heart jpg", {:controller => :favorites, :action => "update"} %>
   <audio controls preload="auto">
     <source src="<%= @song.url %>" type="audio/mp4"/>
     <source src="http://" type="audio/ogg"/>
     <p>Please update your browser to the latest version to play music.</p>
   </audio>
+  <%# link_to image_tag "elipsis jpg", {:controller => :songs, :action => "index"} %>
+  <%# link_to image_tag "share jpg", {:controller => :share, :action => "share form"} %>
 </footer>

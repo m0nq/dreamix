@@ -11,6 +11,9 @@ class CreateMembers < ActiveRecord::Migration
       t.string :soundcloud_access_token
       t.timestamps null: false
     end
-    # add_index :soundcloud_user_id
+    add_index(:members, :name)
+    add_index(:members, :email)
+    add_index(:members, :soundcloud_user_id)
+    add_index(:members, :social_profile)
   end
 end
