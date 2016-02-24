@@ -1,3 +1,6 @@
+*note: a redirect within a controller is how you traverse to another controller's action.
+       to traverse pages within a view, the link_to(text || image_tag('...'), {:controller => 'controller', :action => 'controller#action', :id => (self.id)}) method uses a hash as it's target to specify it's destination.
+
 1. When member hits splash page
   1a. They can login with their email and password.
 
@@ -13,4 +16,4 @@
       2c.2b change appropriate display data
       2c.2c play song
     2c.3 share
-      2c.3a 
+      2c.3a

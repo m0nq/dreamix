@@ -1,6 +1,11 @@
 <div class="container">
   <div class="page-header">
     <div class="btn btn-default btn-sm pull-left" role="button">
+      <%# if member.social_media_connected do
+            link_to(image_tag(member.social_profile image), { :controller => :members, :action => :show, with :id of self})
+          else
+            link_to(image_tag(default image), { :controller => :members, :action => :show, with :id of self})
+          end %>
       <%= link_to image_tag("../assets/images/monk1.jpg"), "/members/index" %>
     </div>
     <h1 class="pull-right">Dreamix</h1>
