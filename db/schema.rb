@@ -33,20 +33,11 @@ ActiveRecord::Schema.define(version: 20160223191557) do
     t.string   "social_media_connected"
     t.string   "social_profile"
     t.integer  "number_of_uploads"
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
-    t.string   "password_digest"
+    t.integer  "soundcloud_user_id"
+    t.string   "soundcloud_access_token"
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
   end
-
-  create_table "shares", force: :cascade do |t|
-    t.integer  "song_id"
-    t.integer  "member_id"
-    t.datetime "time"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  add_index "shares", ["member_id", "song_id"], name: "index_shares_on_member_id_and_song_id", using: :btree
 
   create_table "songs", force: :cascade do |t|
     t.string   "artist"
@@ -55,6 +46,7 @@ ActiveRecord::Schema.define(version: 20160223191557) do
     t.time     "duration"
     t.string   "format"
     t.boolean  "is_playing"
+    t.integer  "member_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

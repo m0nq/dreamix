@@ -11,3 +11,12 @@
 /log/*
 !/log/.keep
 /tmp
+
+.DS_Store
+Thumbs.db
+.log
+.sql
+.sass-cache/
+.codekit-config.json
+secrets.yml
+env.yml

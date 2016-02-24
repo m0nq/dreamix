@@ -7,6 +7,7 @@ class CreateSongs < ActiveRecord::Migration
       t.time :duration
       t.string :format
       t.boolean :is_playing
+      t.references :member
 
       t.timestamps null: false
     end
