@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   root "access#login"
   get '/soundcloud/connect', :to => 'soundcloud#connect'
   get 'soundcloud/oauth-callback', to: 'soundcloud#connected'
@@ -6,5 +7,5 @@ Rails.application.routes.draw do
   # get 'soundcloud/connected'
   # get 'soundcloud/destroy'
 
-  match ':controller(/:action(/:id))', :via => [:get, :post]
+  match ':controller(/:action(/:id))', :via => [:get, :post, :patch, :delete]
 end

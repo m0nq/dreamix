@@ -1,5 +1,11 @@
 <p id="notice"><%= notice %></p>
 
+<%#<% if @member.social_media_connected do %>
+  <%#<%= image_tag(@member.social_profile.image)%>
+<%# else
+  display default image here. %>
+<%#<% end %>
+
 <p>
   <strong>Name:</strong>
   <%= @member.name %>
@@ -10,10 +16,11 @@
   <%= @member.email %>
 </p>
 
+<%#
 <p>
   <strong>Password:</strong>
   <%= @member.password %>
-</p>
+<%# </p> %>
 
 <%#
 <p>
@@ -31,6 +38,7 @@
   <%= @member.number_of_uploads %>
 </p>
 
-<%= link_to 'Edit', edit_member_path(@member) %> |
-<%= link_to 'Back', members_path %>
-<%= link_to("Logout", {:controller => :access, :action => 'logout'}) %>
+<%# <%= link_to 'Edit', edit_member_path(@member) %>
+<%= link_to 'Back', { :controller => 'songs', :action => 'show'} %>
+<%# '.clear' everything in the Stream %>
+<%= link_to "Logout", { :controller => :access, :action => 'logout' } %>

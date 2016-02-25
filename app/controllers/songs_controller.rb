@@ -11,8 +11,31 @@ class SongsController < ApplicationController
   # GET /songs/1
   # GET /songs/1.json
   def show
-    # song = Song.find(params[:id])
-    # @song = song.
+    # TODO: essentially there would be one, and only one stream, per each member that would be populated with new songs each time they revistied the application.
+
+    # Psuedo code:
+    # if there is already a stream created for the logged in member, and it's populated with songs, then continue on.
+    # if !@stream.save do
+      # create a new stream,
+      # @stream = Stream.new
+
+      # associate it with a member,
+      # @stream.member = self
+
+      # populate it with a randomized list of songs
+      # @stream.songs = Song.randomized_queue
+
+      # start using that stream as it's queue for listening.
+      # @stream.save
+      # return @stream
+
+    # elsif @stream.songs.empty? do
+      # return @stream.songs = Song.randomized_queue
+    # end
+    # @stream
+    # TODO: reset to Song.find_by_id(params[:id])
+    @song = Song.find_by_id(1)
+    @song
   end
 
   # GET /songs/new
@@ -27,8 +50,11 @@ class SongsController < ApplicationController
   # POST /songs
   # POST /songs.json
   def create
+    # add new song in Song db
     @song = Song.new(song_params)
     member = @song
+    # determine current member adding song
+    # append new song to the current members songs list. (member.songs << @song)
 
     respond_to do |format|
       if @song.save
@@ -68,7 +94,8 @@ class SongsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_song
-      @song = Song.find(params[:id])
+      # TODO: reset to Song.find_by_id(params[:id])
+      @song = Song.find(1)
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

@@ -9,6 +9,7 @@ class CreateMembers < ActiveRecord::Migration
       t.integer :number_of_uploads
       t.integer :soundcloud_user_id
       t.string :soundcloud_access_token
+      # t.references :stream
       t.timestamps null: false
     end
     add_index(:members, :name)

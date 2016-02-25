@@ -2,7 +2,7 @@ class Member < ActiveRecord::Base
 
   has_secure_password
 
-  belongs_to :stream
+  has_one :stream
   has_many :favorites
   has_many :songs
 

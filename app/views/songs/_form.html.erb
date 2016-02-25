@@ -1,3 +1,19 @@
+<%#
+  TODO: Within the controller;
+  Essentially a member would only place in a url,
+    Extract (parse) the artist, title, audio format, image (if any), and duration of song.
+    Create a new song with extracted parameters and the url in the Songs table.
+    Add uploaded member association to the new song
+    try/catch
+      if success
+        Update flash notice with success message
+        redirect_to { :action => "show" }
+      else
+        Update flash notice with failure message, and to try again.
+        redirect_to { :action => "show" }
+      end
+%>
+
 <%= form_for(@song) do |f| %>
   <% if @song.errors.any? %>
     <div id="error_explanation">
@@ -30,10 +46,6 @@
   <div class="field">
     <%= f.label :format %><br>
     <%= f.text_field :format %>
-  </div>
-  <div class="field">
-    <%= f.label :is_playing %><br>
-    <%= f.check_box :is_playing %>
   </div>
   <div class="actions">
     <%= f.submit %>

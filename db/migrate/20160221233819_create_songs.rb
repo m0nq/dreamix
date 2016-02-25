@@ -8,7 +8,7 @@ class CreateSongs < ActiveRecord::Migration
       t.string :format
       t.boolean :is_playing
       t.references :member
-
+      t.references :stream
       t.timestamps null: false
     end
     add_index(:songs, :member_id)

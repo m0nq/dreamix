@@ -1,8 +1,14 @@
 class Song < ActiveRecord::Base
-  belongs_to :stream
+  has_many :streams
   has_many :favorites
-  belongs_to :member
+  has_one :member #, through: :stream
 
   validates :title, presence: true
   validates :artist, presence: true
+
+  # Void -> ARel
+  # returns a randomized queuse of all songs for a stream.
+  scope :randomized_queue, lambda {
+    Song.all.order("RANDOM()")
+  }
 end

@@ -21,8 +21,8 @@ class AccessController < ApplicationController
       session[:member_id] = authorized_user.id
       session[:name] = authorized_user.name
       flash[:notice] = "You are now logged in."
-      # TODO: redirect_to({ :controller => 'songs', :action => 'show' })
-      redirect_to({:controller => 'access', :action => 'index'})
+      redirect_to({ :controller => 'songs', :action => 'show', :id => 1})
+      # redirect_to({:controller => 'access', :action => 'index'})
     else
       flash[:notice] = "Invalid username/password combination."
       redirect_to(:action => 'login')

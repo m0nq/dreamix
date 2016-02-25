@@ -1,5 +1,26 @@
-*note: a redirect within a controller is how you traverse to another controller's action.
-       to traverse pages within a view, the link_to(text || image_tag('...'), {:controller => 'controller', :action => 'controller#action', :id => (self.id)}) method uses a hash as it's target to specify it's destination.
+*notes:
+  - A redirect within a controller is how you traverse to another controller's action.
+  - To traverse pages within a view, the link_to(text || image_tag('...'), {:controller => 'controller', :action => 'controller#action', :id => (self.id)}) method uses a hash as it's target to specify it's destination.
+
+*
+  - When creating a new object for a db table, passing a hash in the parameters of '.new' will place all the values faster. i.e. "mass assignment"
+  - There are 5 types of find;
+    + Primary Key finder -> '.find(n)', returns an error if not found, thus is best used when certain of a records existence.
+    + Dynamic finders -> '.find_by_id(n), .find_by_name(String), etc.', which returns the object of 'nil' instead of an error. Can be used to find on more columns than just the primary key columns as each method is generated dynamically based on a table's column name.
+    + All finder -> '.all', returns an ARel array of objects.
+    + First/Last -> '.first, .last', returns first/last record, or nil.
+    + Conditional find '.where(condition)', is how we do more complex finds with a Hash, String (with raw SQL; should be used sparringly), or Array as the condition for the argument. Returns an ARel object which can be chained to other methods.
+  - You can place a named scope within a model for more particular, repeated, and modular find using lambdas. It's effectively the same as adding a class method that executes a specified query for that model. (lambdas are evaluated when executed at run time, not during compilation.)
+  - Updating an object can be done with basic assignment or mass assignment with the '.update_attributes()' method.
+  - Deleting an object should be done with the '.destroy()' method, opposed to '.delete()', as '.delete' can have unintended side effects.
+
+  CRUD:
+  - For each element of CRUD, Rails has 2 actions associated with it.
+    + Create: '.new' & '.create', show new form, process new record (respectively).
+    + Read: '.index' & '.show', list all records, show a single record (respectively).
+    + Update: '.edit' & '.update', display edit form, process the editing form (respectively).
+    + Delete: '.delete' & '.destroy', display delete form, process delete form (respectively).
+
 
 1. When member hits splash page
   1a. They can login with their email and password.

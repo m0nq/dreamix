@@ -53,6 +53,7 @@ ActiveRecord::Schema.define(version: 20160223191557) do
     t.string   "format"
     t.boolean  "is_playing"
     t.integer  "member_id"
+    t.integer  "stream_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -65,12 +66,11 @@ ActiveRecord::Schema.define(version: 20160223191557) do
   create_table "streams", force: :cascade do |t|
     t.integer  "song_id"
     t.integer  "member_id"
-    t.boolean  "is_playing"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.boolean  "is_playing", default: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
   end
 
-  add_index "streams", ["member_id"], name: "index_streams_on_member_id", using: :btree
   add_index "streams", ["song_id"], name: "index_streams_on_song_id", using: :btree
 
 end

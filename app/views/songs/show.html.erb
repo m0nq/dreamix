@@ -1,12 +1,12 @@
 <div class="container">
   <div class="page-header">
     <div class="btn btn-default btn-sm pull-left" role="button">
-      <%# if member.social_media_connected do
-            link_to(image_tag(member.social_profile image), { :controller => :members, :action => :show, :id => self.id })
-          else
-            link_to(image_tag(default image), { :controller => :members, :action => :show, with :id => self.id })
-          end %>
-      <%= link_to image_tag("../assets/images/monk1.jpg"), "/members/index" %>
+      <%#<% if member.social_media_connected do %>
+        <%#<%= link_to(image_tag(member.social_profile image), { :controller => :members, :action => :show, :id => self.id }) %>
+      <%#<% else %>
+        <%= link_to "Menu", {:controller => :members, :action => :show} %> <%#, :id => self.id }%>
+      <%#<% end %>
+      <%# link_to image_tag("../assets/images/monk1.jpg"), "/members/index" %>
     </div>
     <h1 class="pull-right">Dreamix</h1>
   </div>
@@ -15,7 +15,7 @@
 <p id="notice"><%= notice %></p>
 <div class="container">
 
-  <img src="" alt="" />
+  <%# <%= image_tag @song.image %>
 
   <p>
     <strong>Artist:</strong>
@@ -26,39 +26,33 @@
     <strong>Title:</strong>
     <%= @song.title %>
   </p>
-
-  <p>
-    <strong>Url:</strong>
-    <%= @song.url %>
-  </p>
-
-  <p>
-    <strong>Duration:</strong>
-    <%= @song.duration %>
-  </p>
-
-  <!-- <p>
-    <strong>Format:</strong>
-    <%= @song.format %>
-  </p>
-
-  <p>
-    <strong>Is playing:</strong>
-    <%= @song.is_playing %>
-  </p> -->
-
-  <%# link_to 'Edit', edit_song_path(@song)  | %>
-  <div class="btn btn-default btn-sm" role="button">
-    <%= link_to 'Back', songs_path %>
-  </div>
 </div>
-<footer>
-  <%# link_to image_tag "heart jpg", {:controller => :favorites, :action => "update"} %>
+
+<footer class="">
+  <div class="btn btn-default btn-sm" role="button">
+    <%# TODO: insert image_tag "heart jpg" %>
+    <%= link_to "Love", { :controller => :favorites, :action => "update", :id => @song.id } %>
+  </div>
+
+  <div class="btn btn-default btn-sm" role="button">
+    <%# TODO: insert image_tag "elipsis jpg" %>
+    <%= link_to "Info", { :controller => "stream", :action => "index" } %>
+  </div>
+
+  <%# play songs queued in stream %>
+  <%# @stream.songs.each do |song|
+        add song media to the player
+      end
+  %>
   <audio controls preload="auto">
-    <source src="<%= @song.url %>" type="audio/mp4"/>
-    <source src="http://" type="audio/ogg"/>
+    <source src="#" type="audio/mp4"/>
+    <source src="#" type="audio/webm"/>
+    <source src="#" type="audio/ogg"/>
     <p>Please update your browser to the latest version to play music.</p>
   </audio>
-  <%# link_to image_tag "elipsis jpg", {:controller => :songs, :action => "index"} %>
-  <%# link_to image_tag "share jpg", {:controller => :share, :action => "share form"} %>
+
+  <%# TODO: insert image_tag "share jpg" %>
+  <div class="btn btn-default btn-sm" role="button">
+    <%= link_to "Share a Song", { :action => "new" } %>
+  </div>
 </footer>
