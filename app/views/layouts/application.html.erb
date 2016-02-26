@@ -18,7 +18,7 @@
     <!-- Google Font: Philosopher -->
     <link href='https://fonts.googleapis.com/css?family=Philosopher' rel='stylesheet' type='text/css'>
   </head>
-  <body style="height: 100%; margin: 0; background-repeat: no-repeat; background: linear-gradient(white, black); background-attachment: fixed;">
+  <body>
     <% @page_title = "Dreamix" %>
     <% if notice %>
       <p class="alert alert-success navbar-fixed-top"><%= notice %></p>
@@ -37,12 +37,5 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-    <script type="text/javascript">
-      $(document).ready(function(){
-        setTimeout(function(){
-          $('.alert').fadeOut();
-        }, 2500);
-      })
-    </script>
   </body>
 </html>

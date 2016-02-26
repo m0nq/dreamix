@@ -13,3 +13,34 @@
  *= require_tree .
  *= require_self
  */
+ 
+body {
+  height: 100%;
+  margin: 0;
+  background-repeat: no-repeat;
+  background: linear-gradient(white, black); background-attachment: fixed;
+}
+
+.philosopher-heading {
+  font-family: Philosopher, Helvetica, sans; font-size: 3.5em;
+}
+
+.display-album-art {
+  padding-top: 20px; margin-bottom: -10px;
+}
+
+.display-text-wrapper {
+  position: absolute; bottom: 0;
+}
+
+.display-text {
+  color: white;
+}
+
+.music-player-wrapper {
+  padding-bottom: 8px;
+}
+
+.music-player {
+
+}

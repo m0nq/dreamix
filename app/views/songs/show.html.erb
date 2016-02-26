@@ -1,10 +1,10 @@
 <div class="navbar">
-    <h1 class="pull-right" style="font-family: Philosopher, Helvetica, sans; font-size: 3.5em;">Dreamix</h1>
+    <h1 class="pull-right philosopher-heading">Dreamix</h1>
     <%#<% if member.social_media_connected do %>
       <%#<%= link_to(image_tag(member.social_profile image), { :controller => :members, :action => :show, :id => self.id }) %>
     <%#<% else %>
     <ul class="list-inline">
-      <li style="padding-top: 20px; margin-bottom: -10px;"><%= link_to image_tag("monk1.jpg", {class: "menu_icon", size: "50"}), {:controller => :members, :action => :show}, class: "btn btn-sm img-responsive pull-left" %> <%#, :id => self.id }%></li>
+      <li class="display-album-art"><%= link_to image_tag("monk1.jpg", {class: "menu_icon", size: "50"}), {:controller => :members, :action => :show}, class: "btn btn-sm img-responsive pull-left" %> <%#, :id => self.id }%></li>
       <!-- <li><%# link_to image_tag("../assets/images/monk1.jpg"), "/members/index" %></li> -->
     </ul>
     <%#<% end %>
@@ -15,16 +15,16 @@
 <%# <%= image_tag @song.image %>
 <%= image_tag("Blackstar.jpg", {class: "img-responsive col-lg-offset-3", size: "550"}) %>
 
-<div class='container' style="position: absolute; bottom: 0;">
+<div class='container display-text-wrapper'>
   <div class='col-lg-11 col-md-offset-2'>
     <div class='col-xs-6 col-md-6'>
 
-      <p style="color: white;">
+      <p class="display-text">
         <strong>Artist:</strong>
         <%= @song.artist %>
       </p>
 
-      <p style="color: white;">
+      <p class="display-text">
         <strong>Title:</strong>
         <%= @song.title %>
       </p>
@@ -41,7 +41,7 @@
       <%= link_to "Share a Song", { :action => "new" }, class: "btn btn-default btn-sm" %>
     </div>
   </div>
-  <div class='row' style='padding-bottom: 8px;'>
+  <div class='row music-player-wrapper'>
     <%# play songs queued in stream %>
     <%# @stream.songs.each do |song|
           add song media to the player
