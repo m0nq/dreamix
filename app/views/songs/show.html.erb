@@ -47,6 +47,6 @@
           add song media to the player
         end
     %>
-    <%= audio_tag("Girl Loves Me.m4a", {preload: true, controls: true, class: "col-xs-12 col-sm-12 col-md-12 col-lg-12 music-player"}) %>
+    <%= audio_tag(@song.url, { preload: true, controls: true, class: "col-xs-12 col-sm-12 col-md-12 col-lg-12 music-player" }) %>
   </div>
 </div>

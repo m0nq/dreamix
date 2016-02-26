@@ -1,5 +1,5 @@
 class SongsController < ApplicationController
-  before_action :set_song, only: [:show, :edit, :update, :destroy]
+  before_action :set_song, only: [:edit, :update, :destroy]
   before_action :confirmed_logged_in
 
   # GET /songs
@@ -14,30 +14,46 @@ class SongsController < ApplicationController
   def show
     # TODO: essentially there would be one, and only one stream, per each member that would be populated with new songs each time they revistied the application.
 
+    # keep track of play position within the queue
+    @current_index = 0
+
     # Psuedo code:
     # if there is already a stream created for the logged in member, and it's populated with songs, then continue on.
-    # if !@stream.save
-      # create a new stream,
-      # @stream = Stream.new
+    member = Member.find_by_id(params[:id])
 
+    if member.stream.songs.empty?
+      # create a new stream,
       # associate it with a member,
-      # @stream.member = self
+      # member.stream = Stream.new
 
       # populate it with a randomized list of songs
-      # @stream.songs = Song.randomized_queue
+      member.stream.songs = Song.randomized_queue
 
       # start using that stream as it's queue for listening.
-      # @stream.save
-      # return @stream
+      @song = member.stream.songs[@current_index]
 
-    # elsif @stream.songs.empty? do
-      # return @stream.songs = Song.randomized_queue
-    # end
-    # @stream
-    # TODO: reset to Song.find_by_id(params[:id])
-    @stream = Song.randomized_queue
-    @song = Song.find_by_id(1)
-    @song
+      # if it's not the case that the current index is greater than the members stream song count
+      unless @current_index > member.stream.songs.count
+        # reset the play count
+        @current_index = 0
+      else
+        # increment the play count
+        @current_index += 1
+      end
+    return @song
+    else
+      @song = member.stream.songs[@current_index]
+
+      # if it's not the case that the current index is greater than the members stream song array count
+      unless @current_index > member.stream.songs.count
+        # reset the play count
+        @current_index = 0
+      else
+        # increment the play count
+        @current_index += 1
+      end
+      return @song
+    end
   end
 
   # GET /songs/new
@@ -67,7 +83,6 @@ class SongsController < ApplicationController
         format.json { render json: @song.errors, status: :unprocessable_entity }
       end
     end
-  end
 
   # PATCH/PUT /songs/1
   # PATCH/PUT /songs/1.json
@@ -97,11 +112,12 @@ class SongsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_song
       # TODO: reset to Song.find_by_id(params[:id])
-      @song = Song.find(1)
+      @song = Song.find_by_id(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def song_params
       params.require(:song).permit(:artist, :title, :url, :duration, :format, :is_playing)
     end
+  end
 end
