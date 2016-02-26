@@ -14,7 +14,7 @@ class MembersController < ApplicationController
   # GET /members/1.json
   # TODO: reset find to find_by_id(paras[:id])
   def show
-    @member = Member.find(1)
+    @member = Member.find_by_id(params[:id])
   end
 
   # Display new member form

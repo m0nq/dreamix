@@ -19,7 +19,7 @@ class SongsController < ApplicationController
 
     # Psuedo code:
     # if there is already a stream created for the logged in member, and it's populated with songs, then continue on.
-    member = Member.find_by_id(params[:id])
+    member = Member.find_by_id(params[:id]) unless params[:id].nil?
 
     if member.stream.songs.empty?
       # create a new stream,

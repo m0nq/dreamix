@@ -35,7 +35,7 @@
       <%= link_to "Info", { :controller => "stream", :action => "index" }, class: "btn btn-default btn-sm" %>
 
       <%# TODO: insert image_tag "heart jpg" %>
-      <%= link_to "Love", { :controller => :favorites, :action => "update", :id => @song.id }, class: "btn btn-default btn-sm" %>
+      <%= link_to "Love", { :controller => :favorites, :action => "create", :id => @song.id }, class: "btn btn-default btn-sm" %>
 
       <%# TODO: insert image_tag "share jpg" %>
       <%= link_to "Share a Song", { :action => "new" }, class: "btn btn-default btn-sm" %>
