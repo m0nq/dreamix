@@ -4,7 +4,7 @@
       <%#<%= link_to(image_tag(member.social_profile image), { :controller => :members, :action => :show, :id => self.id }) %>
     <%#<% else %>
     <ul class="list-inline">
-      <li class="display-album-art"><%= link_to image_tag("monk1.jpg", {class: "menu_icon", size: "50"}), {:controller => :members, :action => :show}, class: "btn btn-sm img-responsive pull-left" %> <%#, :id => self.id }%></li>
+      <li class="display-album-art"><%= link_to image_tag("monk1.jpg", {class: "menu_icon", size: "50"}), {:controller => :members, :action => :show, :id => session[:member_id]}, class: "btn btn-sm img-responsive pull-left" %> <%#, :id => self.id }%></li>
       <!-- <li><%# link_to image_tag("../assets/images/monk1.jpg"), "/members/index" %></li> -->
     </ul>
     <%#<% end %>

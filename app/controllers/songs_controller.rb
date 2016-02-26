@@ -21,10 +21,10 @@ class SongsController < ApplicationController
     # if there is already a stream created for the logged in member, and it's populated with songs, then continue on.
     member = Member.find_by_id(params[:id]) unless params[:id].nil?
 
-    if member.stream.songs.empty?
+    if member.stream.nil?
       # create a new stream,
       # associate it with a member,
-      # member.stream = Stream.new
+      member.stream = Stream.create
 
       # populate it with a randomized list of songs
       member.stream.songs = Song.randomized_queue
