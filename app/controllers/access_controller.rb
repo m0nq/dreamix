@@ -21,8 +21,8 @@ class AccessController < ApplicationController
       session[:member_id] = authorized_user.id
       session[:name] = authorized_user.name
       flash[:notice] = "You are now logged in."
-      redirect_to({ :controller => 'songs', :action => 'show', :id => 1})
-      # redirect_to({:controller => 'access', :action => 'index'})
+      redirect_to({ :controller => 'songs', :action => 'show', :id => authorized_user.id})
+        # :id => session[:member_id]
     else
       flash[:notice] = "Invalid username/password combination."
       redirect_to(:action => 'login')
@@ -30,6 +30,7 @@ class AccessController < ApplicationController
   end
 
   def logout
+    # TODO: empty current members queue in it's stream.
     # mark user as logged out
     session[:member_id] = nil
     session[:name] = nil

@@ -16,15 +16,20 @@
       <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
   </head>
-  <body>
+  <body style="height: 100%; margin: 0; background-repeat: no-repeat; background: linear-gradient(white, black); background-attachment: fixed;">
+    <% @page_title = "Dreamix" %>
     <% if notice %>
-      <p class="alert alert-success"><%= notice %></p>
+      <p class="alert alert-success navbar-fixed-top"><%= notice %></p>
     <% end %>
     <% if alert %>
-      <p class="alert alert-danger"><%= alert %></p>
+      <p class="alert alert-danger navbar-fixed-top"><%= alert %></p>
     <% end %>
 
-    <%= yield %>
+    <div class="container">
+
+      <%= yield %>
+
+    </div>
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
@@ -34,7 +39,7 @@
       $(document).ready(function(){
         setTimeout(function(){
           $('.alert').fadeOut();
-        }, 3000);
+        }, 2500);
       })
     </script>
   </body>

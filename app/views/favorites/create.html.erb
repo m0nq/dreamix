@@ -1,10 +1,10 @@
-<% if notice %>
-  <p class="alert alert-success"><%= notice %></p>
-<% end %>
-<% if alert %>
-  <p class="alert alert-danger"><%= alert %></p>
-<% end %>
+<div class="col-sm-10 col-md-6 col-lg-4 text-center">
+  <% if notice %>
+    <p class="alert alert-success"><%= notice %></p>
+  <% end %>
+  <% if alert %>
+    <p class="alert alert-danger"><%= alert %></p>
+  <% end %>
 
-<%= <div class="btn btn-default btn-sm" role="button"> %>
-  <%= link_to 'Back', songs_path %>
-<%= </div> %>
+  <%= link_to 'Back', {:controller => "songs", :action => "show"}, class: "btn btn-default btn-sm" %>
+</div>

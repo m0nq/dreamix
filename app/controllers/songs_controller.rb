@@ -5,6 +5,7 @@ class SongsController < ApplicationController
   # GET /songs
   # GET /songs.json
   def index
+    # TODO: this should return the current members randomized queue from the point in the list of the current playing song onward
     @songs = Song.all
   end
 
@@ -15,7 +16,7 @@ class SongsController < ApplicationController
 
     # Psuedo code:
     # if there is already a stream created for the logged in member, and it's populated with songs, then continue on.
-    # if !@stream.save do
+    # if !@stream.save
       # create a new stream,
       # @stream = Stream.new
 
@@ -34,6 +35,7 @@ class SongsController < ApplicationController
     # end
     # @stream
     # TODO: reset to Song.find_by_id(params[:id])
+    @stream = Song.randomized_queue
     @song = Song.find_by_id(1)
     @song
   end

@@ -1,44 +1,46 @@
-<p id="notice"><%= notice %></p>
+<div class="col-lg-12 text-center">
+  <p id="notice"><%= notice %></p>
+  <div class="page-header">
+    <h1>Dreamix</h1>
+  </div>
 
-<%#<% if @member.social_media_connected do %>
-  <%#<%= image_tag(@member.social_profile.image)%>
-<%# else
-  display default image here. %>
-<%#<% end %>
+  <%#<% if @member.social_media_connected do %>
+    <%#<%= image_tag(@member.social_profile.image)%>
+  <%# else
+    display default image here. %>
+  <%#<% end %>
 
-<p>
-  <strong>Name:</strong>
-  <%= @member.name %>
-</p>
+  <p>
+    <%= @member.name %>
+  </p>
 
-<p>
-  <strong>Email:</strong>
-  <%= @member.email %>
-</p>
+  <p>
+    <%= @member.email %>
+  </p>
 
-<%#
-<p>
-  <strong>Password:</strong>
-  <%= @member.password %>
-<%# </p> %>
+  <%#
+  <p>
+    <strong>Password:</strong>
+    <%= @member.password %>
+  <%# </p> %>
 
-<%#
-<p>
-  <strong>Social media connected:</strong>
-  <%= @member.social_media_connected %>
-<%#</p>%>
+  <%#
+  <p>
+    <strong>Social media connected:</strong>
+    <%= @member.social_media_connected %>
+  <%#</p>%>
 
-<p>
-  <strong>Social profile:</strong>
-  <%= @member.social_profile %>
-</p>
+  <p>
+    <%= link_to "Favorites", {controller: 'favorites', action: 'index'} %>
+  </p>
 
-<p>
-  <strong>Number of uploads:</strong>
-  <%= @member.number_of_uploads %>
-</p>
+  <p>
+    <strong>Number of uploads:</strong>
+    <%= @member.number_of_uploads %>
+  </p>
 
-<%# <%= link_to 'Edit', edit_member_path(@member) %>
-<%= link_to 'Back', { :controller => 'songs', :action => 'show'} %>
-<%# '.clear' everything in the Stream %>
-<%= link_to "Logout", { :controller => :access, :action => 'logout' } %>
+  <%# '.clear' everything in the Stream %>
+  <%= link_to "Logout", { :controller => :access, :action => 'logout' }, class: "btn btn-default btn-sm" %>
+  <%# <%= link_to 'Edit', edit_member_path(@member) %>
+  <%= link_to 'Back', { :controller => 'songs', :action => 'show'}, class: "btn btn-default btn-sm" %>
+</div>
