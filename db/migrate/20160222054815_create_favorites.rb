@@ -1,5 +1,5 @@
 class CreateFavorites < ActiveRecord::Migration
-  def change
+  def up
     create_table :favorites do |t|
       t.references :song
       t.references :member
@@ -8,5 +8,9 @@ class CreateFavorites < ActiveRecord::Migration
     end
     add_index(:favorites, :member_id)
     add_index(:favorites, :song_id)
+  end
+
+  def down
+    drop_table :favorites
   end
 end
