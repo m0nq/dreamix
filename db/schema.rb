@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160222062043) do
+ActiveRecord::Schema.define(version: 20160223191557) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,28 +24,26 @@ ActiveRecord::Schema.define(version: 20160222062043) do
     t.datetime "updated_at", null: false
   end
 
-  add_index "favorites", ["member_id", "song_id"], name: "index_favorites_on_member_id_and_song_id", using: :btree
+  add_index "favorites", ["member_id"], name: "index_favorites_on_member_id", using: :btree
+  add_index "favorites", ["song_id"], name: "index_favorites_on_song_id", using: :btree
 
   create_table "members", force: :cascade do |t|
     t.string   "name"
     t.string   "email"
-    t.string   "password"
     t.string   "social_media_connected"
     t.string   "social_profile"
     t.integer  "number_of_uploads"
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.integer  "soundcloud_user_id"
+    t.string   "soundcloud_access_token"
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+    t.string   "password_digest"
   end
 
-  create_table "shares", force: :cascade do |t|
-    t.integer  "song_id"
-    t.integer  "member_id"
-    t.datetime "time"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  add_index "shares", ["member_id", "song_id"], name: "index_shares_on_member_id_and_song_id", using: :btree
+  add_index "members", ["email"], name: "index_members_on_email", using: :btree
+  add_index "members", ["name"], name: "index_members_on_name", using: :btree
+  add_index "members", ["social_profile"], name: "index_members_on_social_profile", using: :btree
+  add_index "members", ["soundcloud_user_id"], name: "index_members_on_soundcloud_user_id", using: :btree
 
   create_table "songs", force: :cascade do |t|
     t.string   "artist"
@@ -54,16 +52,25 @@ ActiveRecord::Schema.define(version: 20160222062043) do
     t.time     "duration"
     t.string   "format"
     t.boolean  "is_playing"
+    t.integer  "member_id"
+    t.integer  "stream_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
+  add_index "songs", ["artist"], name: "index_songs_on_artist", using: :btree
+  add_index "songs", ["member_id"], name: "index_songs_on_member_id", using: :btree
+  add_index "songs", ["title"], name: "index_songs_on_title", using: :btree
+  add_index "songs", ["url"], name: "index_songs_on_url", using: :btree
+
   create_table "streams", force: :cascade do |t|
     t.integer  "song_id"
     t.integer  "member_id"
-    t.boolean  "is_playing"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.boolean  "is_playing", default: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
   end
+
+  add_index "streams", ["song_id"], name: "index_streams_on_song_id", using: :btree
 
 end
