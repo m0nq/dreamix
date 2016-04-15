@@ -30,11 +30,14 @@ ActiveRecord::Schema.define(version: 20160223191557) do
   create_table "members", force: :cascade do |t|
     t.string   "name"
     t.string   "email"
-    t.string   "social_media_connected"
+    t.boolean  "social_media_connected"
     t.string   "social_profile"
     t.integer  "number_of_uploads"
     t.integer  "soundcloud_user_id"
+    t.integer  "invite_code"
+    t.boolean  "is_activated"
     t.string   "soundcloud_access_token"
+    t.integer  "stream_id"
     t.datetime "created_at",              null: false
     t.datetime "updated_at",              null: false
     t.string   "password_digest"
