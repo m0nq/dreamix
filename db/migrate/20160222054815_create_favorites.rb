@@ -6,7 +6,6 @@ class CreateFavorites < ActiveRecord::Migration
       t.datetime :time
       t.timestamps null: false
     end
-    # TODO: figure out how to add an index to table join reference
     add_index(:favorites, [:members_id, :songs_id])
   end
 

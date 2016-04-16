@@ -10,7 +10,6 @@ class CreateSongs < ActiveRecord::Migration
       t.timestamps null: false
       t.references :streams
     end
-    # TODO: figure out how to add an index to table join reference
     add_index(:songs, :streams_id)
     add_index(:songs, :artist)
     add_index(:songs, :title)
