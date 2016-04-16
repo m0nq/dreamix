@@ -12,7 +12,6 @@ class MembersController < ApplicationController
   # List one member
   # GET /members/1
   # GET /members/1.json
-  # TODO: reset find to find_by_id(paras[:id])
   def show
     @member = Member.find_by_id(params[:id])
   end
@@ -74,9 +73,8 @@ class MembersController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    # TODO: reset find to find_by_id(paras[:id])
     def set_member
-      @member = Member.find(1)
+      @member = Member.find_by_id(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
