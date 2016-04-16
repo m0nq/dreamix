@@ -6,7 +6,7 @@ class SongsController < ApplicationController
   # GET /songs.json
   def index
     # TODO: this should return the current members randomized queue from the point in the list of the current playing song onward
-    @songs = Song.all
+    @songs = Song.randomized_queue
   end
 
   # GET /songs/1
@@ -111,7 +111,6 @@ class SongsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_song
-      # TODO: reset to Song.find_by_id(params[:id])
       @song = Song.find_by_id(params[:id])
     end
 

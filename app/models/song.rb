@@ -7,7 +7,7 @@ class Song < ActiveRecord::Base
   validates :artist, presence: true
 
   # Void -> ARel
-  # returns a randomized queuse of all songs for a stream.
+  # returns a randomized queue of all songs for a stream.
   scope :randomized_queue, lambda {
     Song.all.order("RANDOM()")
   }

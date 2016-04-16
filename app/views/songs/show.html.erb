@@ -32,13 +32,13 @@
     <div class='col-xs-6 col-md-6'>
 
       <%# TODO: insert image_tag "elipsis jpg" %>
-      <%= link_to "Info", { :controller => "stream", :action => "index" }, class: "btn btn-default btn-sm" %>
+      <%= link_to "Info", { controller: "stream", action: "index" }, class: "btn btn-default btn-sm" %>
 
       <%# TODO: insert image_tag "heart jpg" %>
-      <%= link_to "Love", { :controller => :favorites, :action => "create", :id => @song.id }, class: "btn btn-default btn-sm" %>
+      <%= link_to "Love", { controller: :favorites, action: "create", id: @song.id }, class: "btn btn-default btn-sm" %>
 
       <%# TODO: insert image_tag "share jpg" %>
-      <%= link_to "Share a Song", { :action => "new" }, class: "btn btn-default btn-sm" %>
+      <%= link_to "Share a Song", { action: "new" }, class: "btn btn-default btn-sm" %>
     </div>
   </div>
   <div class='row music-player-wrapper'>
