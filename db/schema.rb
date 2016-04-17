@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160416023759) do
+ActiveRecord::Schema.define(version: 20160417033150) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -38,7 +38,6 @@ ActiveRecord::Schema.define(version: 20160416023759) do
   create_table "members", force: :cascade do |t|
     t.string   "name"
     t.string   "email"
-    t.string   "password_digest"
     t.boolean  "social_media_connected"
     t.string   "social_profile"
     t.integer  "number_of_uploads"
@@ -48,6 +47,7 @@ ActiveRecord::Schema.define(version: 20160416023759) do
     t.string   "soundcloud_access_token"
     t.datetime "created_at",              null: false
     t.datetime "updated_at",              null: false
+    t.string   "password_digest"
   end
 
   add_index "members", ["email"], name: "index_members_on_email", using: :btree

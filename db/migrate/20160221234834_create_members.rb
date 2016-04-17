@@ -3,7 +3,7 @@ class CreateMembers < ActiveRecord::Migration
     create_table :members do |t|
       t.string :name
       t.string :email
-      t.string :password_digest
+      t.string :password
       t.boolean :social_media_connected
       t.string :social_profile
       t.integer :number_of_uploads
