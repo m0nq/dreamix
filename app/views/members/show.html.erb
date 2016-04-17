@@ -34,7 +34,7 @@
   </p>
 
   <%# '.clear' everything in the Stream %>
-  <%= link_to "Logout", { :controller => :access, :action => 'logout' }, class: "btn btn-default btn-sm" %>
+  <%= link_to "Logout", { controller: :access, action: 'logout' }, class: "btn btn-default btn-sm" %>
   <%# <%= link_to 'Edit', edit_member_path(@member) %>
-  <%= link_to 'Back', { :controller => 'songs', :action => 'show', :id => @member.id }, class: "btn btn-default btn-sm" %>
+  <%= link_to 'Back', { controller: 'songs', action: 'show', id: @member.id }, class: "btn btn-default btn-sm" %>
 </div>

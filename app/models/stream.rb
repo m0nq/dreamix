@@ -1,4 +1,4 @@
 class Stream < ActiveRecord::Base
   has_many :songs
-  belongs_to :member
+  has_many :communities
 end
