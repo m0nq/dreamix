@@ -12,7 +12,7 @@ class CreateMembers < ActiveRecord::Migration
       t.boolean :is_activated
       t.string :soundcloud_access_token
       t.references :streams
-      t.referecess :songs, index: true
+      t.references :songs, index: true
       t.timestamps null: false
     end
     add_index :members, :name
