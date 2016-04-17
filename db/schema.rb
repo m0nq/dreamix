@@ -16,6 +16,15 @@ ActiveRecord::Schema.define(version: 20160417182236) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "communities", force: :cascade do |t|
+    t.integer  "members_id"
+    t.integer  "streams_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "communities", ["members_id", "streams_id"], name: "index_communities_on_members_id_and_streams_id", using: :btree
+
   create_table "favorites", force: :cascade do |t|
     t.integer  "songs_id"
     t.integer  "members_id"
@@ -35,6 +44,8 @@ ActiveRecord::Schema.define(version: 20160417182236) do
     t.string   "social_profile"
     t.integer  "number_of_uploads"
     t.integer  "soundcloud_user_id"
+    t.integer  "invite_code"
+    t.boolean  "is_activated"
     t.string   "soundcloud_access_token"
     t.integer  "streams_id"
     t.datetime "created_at",              null: false
@@ -68,6 +79,7 @@ ActiveRecord::Schema.define(version: 20160417182236) do
     t.integer  "streams_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "streams_id"
   end
 
   add_index "songs", ["artist"], name: "index_songs_on_artist", using: :btree

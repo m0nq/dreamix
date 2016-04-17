@@ -10,6 +10,7 @@ class CreateSongs < ActiveRecord::Migration
       t.references :members
       t.references :streams
       t.timestamps null: false
+      t.references :streams
     end
     add_index(:songs, :members_id)
     add_index(:songs, :streams_id)
