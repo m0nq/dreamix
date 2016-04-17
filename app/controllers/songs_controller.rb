@@ -21,13 +21,13 @@ class SongsController < ApplicationController
     # if there is already a stream created for the logged in member, and it's populated with songs, then continue on.
     member = Member.find_by_id(params[:id]) unless params[:id].nil?
 
-    if member.stream.nil?
+    if member.streams.nil?
       # create a new stream,
       # associate it with a member,
-      member.stream = Stream.create
+      member.streams << Stream.create
 
       # populate it with a randomized list of songs
-      member.stream.songs = Song.randomized_queue
+      member.streams.songs = Song.randomized_queue
 
       # start using that stream as it's queue for listening.
       @song = member.stream.songs[@current_index]
@@ -42,7 +42,7 @@ class SongsController < ApplicationController
       end
     return @song
     else
-      @song = member.stream.songs[@current_index]
+      @song = member.streams.songs[@current_index]
 
       # if it's not the case that the current index is greater than the members stream song array count
       unless @current_index > member.stream.songs.count
