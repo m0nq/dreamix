@@ -3,8 +3,7 @@ class Member < ActiveRecord::Base
   has_secure_password
 
   has_and_belongs_to_many :streams
-  has_many :favorites
-  has_many :songs, through: :favorites
+  has_and_belongs_to_many :songs
 
   validates :password, presence: true, length: { minimum: 8 }
   validates :email, presence: true, format: { with: /\A[^@]+@([^@\.]+\.)+[^@\.]+\z/, message: "Please enter a valid email" }

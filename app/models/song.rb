@@ -1,7 +1,6 @@
 class Song < ActiveRecord::Base
   has_one :stream
-  has_many :favorites
-  has_many :members, through: :favorites
+  has_and_belongs_to_many :members
 
   validates :title, presence: true
   validates :artist, presence: true
